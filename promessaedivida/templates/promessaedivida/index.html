@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+
+{% block nav_promessaedivida %} class="active"{% endblock %}
+
+{% block container %}
+    <div class="page-header">
+            <h1>Promessa é Divida! 
+                <small>
+                    {% if search %}
+                        pesquisa com a palavra: "{{ search }}"
+                    {% else %}
+                        listagem de todos os politicos
+                    {% endif %}
+                   
+                </small>
+            </h1>
+    </div>
+
+        {% for ev in page_obj.object_list %}
+        <div class="well">
+            <div class="row">
+
+            <div class="span3">
+                    <a href="{{ ev.get_absolute_url }}" class="thumbnail"> 
+                        {% if ev.image %}
+                        <img src="{{ ev.image.url }}" class="img-rounded" height="180"/>
+                        {% else %}
+                        <img src="/static/img/event-noimg.jpeg" class="img-rounded" height="180"/>
+                        {% endif %}
+                    </a>
+            </div>
+            <div class="span6">
+                <h3><a href="{{ ev.get_absolute_url }}">{{ ev }}</a> <small>{{ ev.type }}</small> </h3>
+                <p>
+                    {{ ev.description|truncatewords:"20" }}
+                </p>
+                <p class="alert alert-info">
+                   <i class="icon icon-calendar"></i> 
+                   {{ ev.event_date|date:"l, d " }} de {{ ev.event_date|date:"F" }} de {{ ev.event_date|date:"Y" }}{% if ev.event_time %}  <i class="icon icon-time"></i> {{ ev.event_time}}{% endif %}
+                </p>
+                <p>
+                    <i class="icon icon-map-marker"></i> Localização
+                </p>
+
+                <p class="pull-right"><small><i class="icon icon-tags"></i> tag01 tag02 tag03 tag04 </small> </p>
+            </div>
+            <div class="span1 thumbnail" >
+
+                <p>
+                    <i class="icon icon-user"></i> 12
+                </p>
+                <p>
+                    <i class="icon icon-comment"></i> {{ ev.comments_count }} 
+                 </p> 
+                 <p> 
+                    <i class="icon icon-camera"></i> 12 
+                 </p>  
+                <p>
+                    <i class="icon icon-thumbs-up"></i> 6 
+                </p>
+                <p>  
+                    <i class="icon icon-thumbs-down"></i> 6 
+                </p>
+            </div>
+
+        </div>
+        </div>
+
+
+        {% empty %}
+        <div class="alert alert-info">
+            <p>
+                Nenhum evento foi encontrado
+            </p>
+        </div>
+        {% endfor %}
+    {% paginate request paginator page_obj %}
+{% endblock %}

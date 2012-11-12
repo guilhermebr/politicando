@@ -1,0 +1,5 @@
+sqlite.db
+build
+venv
+*.pyc
+politicando/settings_local.py

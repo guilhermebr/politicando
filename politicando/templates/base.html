@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Politicando</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="{{ STATIC_URL }}css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 20px;
+        padding-bottom: 40px;
+      }
+
+      /* Custom container */
+      .container-narrow {
+        margin: 0 auto;
+        max-width: 700px;
+      }
+      .container-narrow > hr {
+        margin: 30px 0;
+      }
+
+      /* Main marketing message and sign up button */
+      .jumbotron {
+        margin: 60px 0;
+        text-align: center;
+      }
+      .jumbotron h1 {
+        font-size: 72px;
+        line-height: 1;
+      }
+      .jumbotron .btn {
+        font-size: 21px;
+        padding: 14px 24px;
+      }
+
+      /* Supporting marketing content */
+      .marketing {
+        margin: 60px 0;
+      }
+      .marketing p + h4 {
+        margin-top: 28px;
+      }
+    </style>
+    <link href="{{ STATIC_URL }}css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+  </head>
+
+  <body>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1&appId=508670915824941";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <div class="container-narrow">
+
+      <div class="masthead">
+        <h3 class="muted"><img src="{{ STATIC_URL }}/img/logoLanding.png"></img></h3>
+      </div>
+
+      <hr>
+
+      <div class="jumbotron">
+        <h1>Para você, Promessa é Dívida?</h1>
+        <p class="lead">O que acha de uma plataforma para acompanhamento de políticos e seus respectivos desempenhos, que utilize informações oficiais de pessoas que ocupam cargos públicos? Analizaremos a quantidade de promessas feitas durante as campanhas e, depois, o que foi realmente executado. Desta forma, os eleitores terão uma visão dinâmica sobre a eficiência do político que elegeram.</p>
+       
+        <div class="form-actions">
+           <p> O Politicando é uma ideia em desenvolvimento, se você gostou nos apoie! É simples, basta cadastrar seu e-mail para ser avisado quando estiver pronto. =)</p>
+           <form action="" method="post" class="well">
+              {% csrf_token %}
+              <input class="input-xxlarge" type="text" placeholder="Insira seu e-mail" name="email">
+              <button type="submit" class="btn btn-small btn-success">Cadastrar</button>
+            </form>
+
+          {% if success %}
+            <div class="alert alert-success">
+                E-mail salvo com sucesso!
+            </div>
+          {% endif %}
+
+         
+      </div>
+       <div class="fb-like" data-href="https://www.facebook.com/Politicando.org" data-send="true" data-width="450" data-show-faces="true"></div>
+        </div>
+<!--
+      <hr>
+
+      <div class="row-fluid marketing">
+        <div class="span6">
+          <h4>Politicando na Mídia</h4>
+          <p><a href="http://www.dm.com.br/#!/texto?id=71991-321-startup">Matéria Diario do Marconi - StartupWeekend e Politicando</a></p>
+
+          <h4>Subheading</h4>
+          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+          <h4>Subheading</h4>
+          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+        </div>
+
+        <div class="span6">
+          <h4>Subheading</h4>
+          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+          <h4>Subheading</h4>
+          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+          <h4>Subheading</h4>
+          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="footer">
+        <p>&copy; </p>
+      </div>
+-->
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{{ STATIC_URL }}js/jquery.js"></script>
+    <script type="text/javascript" 
+      src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
+
+  </body>
+</html>

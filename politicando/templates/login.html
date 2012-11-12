@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block container %}
+        <div class="page-header">
+            <h1>Entrar <small>informe seu usuário e senha</small></h1>
+        </div>
+        <form class="form-horizontal" method="post" action="{% url login %}">
+        {% include "form.html" %}
+            <div class="form-actions" >
+                <button type="submit" class="btn btn-primary">
+                    Logar
+                </button>
+                ou <a href="{% url signup %}"> Cadastrar-se </a>
+            </div>
+        </form>
+    <div>
+        <h4> Possui conta em rede social? <small>Acesse utilizando uma ou todas elas</small><h4>
+            <br>
+                <a href="{% url socialauth_begin 'facebook' %}"><img src="/static/img/facebook-login.png"></a>
+             <a href="{% url socialauth_begin 'twitter' %}"><img src="/static/img/twitter-signin.png"></a>
+    </div>
+{% endblock %}
