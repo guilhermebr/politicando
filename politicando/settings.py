@@ -63,7 +63,7 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    os.path.join(PROJECT_ROOT, 'politicando/static'),
+    os.path.join(PROJECT_ROOT, 'static'),
 
 )
 
