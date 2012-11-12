@@ -1,8 +1,8 @@
-Django==1.4
-distribute==0.6.28
-psycopg2==2.4.5
+Django
+psycopg2
 dj-database-url
 South
 PIL
 django-social-auth
 pymongo
+distribute
