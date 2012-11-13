@@ -15,6 +15,7 @@ framework.
 """
 import os
 
+
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "politicando.settings")
 
 # This application object is used by any WSGI server configured to use this
